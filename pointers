@@ -1,0 +1,33 @@
+#include <stdio.h>
+struct Product{
+	char Name[25];
+	int id;
+	int price;
+};
+int main() {
+	struct Product p[5];
+	int max = -10000;
+	int min = 10000;
+	int sum = 0;
+	for (int i = 0; i < 5; i++) {
+		printf("Product Name:\n");
+		scanf("%24s", p[i].Name, sizeof(p[i].Name));
+
+		printf("Product ID:\n");
+		scanf("%d", &p[i].id);
+
+		printf("Price:\n");
+		scanf("%d", &p[i].price);
+		max = (p[i].price > max) ? p[i].price : max;
+		min = (p[i].price < min) ? p[i].price : min;
+		sum = sum + p[i].price;
+	}
+	for (int i = 0; i < 5; i++) {
+		printf("Product Name: %s,", p[i].Name);
+		printf("Product ID: %d,", p[i].id);
+		printf("Price: %d\n", p[i].price);
+	}
+	printf("Max %d\n", max);
+	printf("Min %d\n", min);
+	printf("Sum %d\n", sum);
+}
